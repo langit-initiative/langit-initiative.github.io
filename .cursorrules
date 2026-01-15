@@ -1,0 +1,95 @@
+# Langit Initiative Website - Project Intelligence
+
+## Project Overview
+This is a static landing page website for Langit Initiative, a non-profit organization promoting LangitHub - a digital platform for education, social care, and UMKM empowerment in Indonesia.
+
+## Key Patterns & Preferences
+
+### Code Style
+- **Language**: Indonesian (Bahasa Indonesia) for all user-facing content
+- **HTML**: Semantic HTML5 with clear section structure
+- **CSS**: Tailwind CSS utility classes with custom styles in `<style>` tag
+- **JavaScript**: Vanilla JS, no framework dependencies
+- **File Structure**: Single HTML file approach (index.html contains everything)
+
+### Design System
+- **Brand Colors**: 
+  - Teal: `#006B6B` (tealBrand)
+  - Turquoise: `#00B4A2` (turquoiseBrand)
+- **Font**: Inter (Google Fonts) - weights 300-800
+- **Animations**: AOS library for scroll animations, custom Tailwind keyframes
+- **Responsive**: Mobile-first approach with Tailwind breakpoints
+
+### Technical Preferences
+- **Deployment**: Docker with Nginx (Bitnami image)
+- **Port**: 8080
+- **No Build Process**: Direct HTML/CSS/JS editing
+- **CDN Resources**: Tailwind, AOS, Google Fonts via CDN
+- **Volume Mounting**: Live code mounting for development
+
+### Component Patterns
+- **Sections**: Each section has ID for anchor navigation, `py-20` spacing, AOS data attributes
+- **Cards**: Consistent `card-hover` class with shadow and transform effects
+- **Navigation**: Sticky header with smooth scroll behavior
+- **Buttons**: Gradient backgrounds with hover effects and transitions
+
+### Critical Implementation Paths
+
+#### Adding New Sections
+1. Add section with unique ID (e.g., `id="new-section"`)
+2. Add navigation link with `href="#new-section"`
+3. Apply consistent spacing (`py-20`) and container (`container mx-auto px-6`)
+4. Add AOS animation attributes (`data-aos="fade-up"`)
+5. Follow existing card/component patterns
+
+#### Modifying Styles
+1. Use Tailwind utilities first
+2. Add custom styles in `<style>` tag if needed
+3. Use brand colors from Tailwind config
+4. Maintain responsive design patterns
+
+#### Adding Interactivity
+1. Add JavaScript in the existing `<script>` tag at bottom
+2. Use vanilla JS (no jQuery or frameworks)
+3. Follow existing patterns (carousel, scroll effects)
+4. Ensure mobile compatibility
+
+### Known Challenges
+- **Mobile Menu**: Button exists but functionality not implemented - needs toggle JS
+- **Placeholder Content**: Several images and links are placeholders
+- **CDN Dependencies**: Site requires internet for Tailwind/AOS to load
+- **Large HTML File**: Single file approach - consider splitting if >1000 lines
+
+### Project-Specific Notes
+- **Indonesian Language**: All content must be in Bahasa Indonesia
+- **Non-Profit Focus**: Emphasize trust, transparency, and community
+- **Three Pillars**: Always reference Edukasi, Peduli, Preneur together
+- **Mobile App**: Primary CTA is app download - links currently placeholders
+
+### Development Workflow
+1. Edit `index.html` directly
+2. Test with `docker-compose up`
+3. View at `http://localhost:8080`
+4. Changes reflect immediately (volume mount)
+5. No build step required
+
+### Future Considerations
+- If complexity grows, consider:
+  - Build process (Vite/Webpack)
+  - Component-based architecture
+  - CSS extraction from Tailwind
+  - JavaScript modules
+  - TypeScript migration
+
+### Important Files
+- `index.html` - Main application file (all content)
+- `docker-compose.yml` - Container configuration
+- `conf/vhost.conf` - Nginx server configuration
+- `images/` - Static assets directory
+
+### Common Tasks
+- **Add new section**: Follow section pattern, add to nav, ensure responsive
+- **Modify colors**: Update Tailwind config in `<script>` tag
+- **Add animation**: Use AOS attributes or custom Tailwind keyframes
+- **Fix mobile menu**: Implement toggle functionality in JavaScript
+- **Replace placeholder**: Update image sources and links
